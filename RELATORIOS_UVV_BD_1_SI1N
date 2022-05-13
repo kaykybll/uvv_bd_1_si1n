@@ -1,3 +1,7 @@
+/*como meu codigo não estava funcionadno 100 % antes, não conseguia inserir valores em algumas tabelas, ai tive que fazer algumas mudanças 
+    para conseguir gerar os relatorios, pois antes com as tabelas incompleto logo eu não conseguia gerar os relatorios com as tabelas incompletas
+    os relatorios iriam ficar incompleto */
+
 -- criando a database.
 create database uvv;
 
@@ -177,9 +181,9 @@ INSERT INTO
     ("88866555576", 20, 0);
     
     
-    /*como meu codigo não estava funcionadno 100 % antes, ão conseguia inserir valores em algumas tabelas, ai tive que fazer algumas mudanças 
+    /*como meu codigo não estava funcionadno 100 % antes, não conseguia inserir valores em algumas tabelas, ai tive que fazer algumas mudanças 
     para conseguir gerar os relatorios, pois antes com as tabelas incompleto logo eu não conseguia gerar os relatorios com as tabelas incompletas
-    os relatorios iriam ficr incompleto */
+    os relatorios iriam ficar incompleto */
      
 	-- Questão 1
  select AVG(salario) as mediaSalarial, nome_departamento as departamento
