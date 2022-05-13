@@ -184,7 +184,8 @@ INSERT INTO
     /*como meu codigo não estava funcionadno 100 % antes, não conseguia inserir valores em algumas tabelas, ai tive que fazer algumas mudanças 
     para conseguir gerar os relatorios, pois antes com as tabelas incompleto logo eu não conseguia gerar os relatorios com as tabelas incompletas
     os relatorios iriam ficar incompleto */
-     
+    
+ 
 	-- Questão 1
  select AVG(salario) as mediaSalarial, nome_departamento as departamento
     from funcionario as f
@@ -192,10 +193,19 @@ INSERT INTO
     group by nome_departamento;
 
 
+
+
+
+
 -- Questão 2
 select AVG(salario) as mediaSalarial, sexo
     from funcionario
     group by sexo;
+
+
+
+
+
 
 -- Questão 3
 select CONCAT(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as nome_completo, f.data_nascimento, curdate() as dataAtual, 
@@ -205,6 +215,10 @@ select CONCAT(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as nome_com
     inner join departamento as d on (f.numero_departamento = d.numero_departamento);
 
 
+
+
+
+
 -- Questão 4
 select CONCAT(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as nome_completo, f.data_nascimento, curdate() as dataAtual, 
     timestampdiff(year, data_nascimento, curdate()) as idade, f.salario as salario_atual, case
@@ -212,6 +226,9 @@ select CONCAT(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as nome_com
     when f.salario >= 35.000 then f.salario + (f.salario * 0.15)
     end as novo_salario
     from funcionario as f;
+
+
+
 
 
 -- Questão 5
@@ -225,6 +242,11 @@ select d.nome_departamento, case
     inner join departamento as d on (f.numero_departamento = d.numero_departamento)
     order by d.nome_departamento asc, f.salario desc;
 
+
+
+
+
+
 -- Questão 6
 select CONCAT(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as nome_completo, dp.nome_departamento, d.nome_dependente, 
     d.parentesco, d.data_nascimento, curdate() as dataAtual, timestampdiff(year, d.data_nascimento, curdate()) as idade_dependente, case
@@ -236,6 +258,9 @@ select CONCAT(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as nome_com
     inner join dependente as d on (f.cpf = d.cpf_funcionario);
 
 
+
+
+
 -- Questão 7
 select CONCAT(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as nome_completo, salario, numero_departamento
     from funcionario as f
@@ -243,6 +268,9 @@ select CONCAT(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as nome_com
     select *
     from dependente
     where cpf = cpf_funcionario);
+
+
+
 
 
 -- Questão 8
@@ -255,6 +283,9 @@ select CONCAT(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as nome_com
     group by nome_projeto, nome_completo, horas
     order by nome_projeto;
 
+
+
+
 -- Questão 9
 select d.nome_departamento, p.nome_projeto, SUM(t.horas) as horas
     from departamento as d
@@ -263,11 +294,18 @@ select d.nome_departamento, p.nome_projeto, SUM(t.horas) as horas
     group by nome_departamento, nome_projeto;
 
 
+
+
+
 -- Questão 10
  select AVG(salario) as mediaSalarial, nome_departamento as departamento
     from funcionario as f
     inner join departamento as d on (f.numero_departamento = d.numero_departamento)
     group by nome_departamento;
+
+
+
+
 
 
 -- Questão 11
@@ -281,6 +319,9 @@ select CONCAT(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as nome_com
     order by nome_projeto;
 
 
+
+
+
 -- Questão 12
 select CONCAT(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as nome_completo, d.nome_departamento, p.nome_projeto, t.horas
     from funcionario as f
@@ -288,6 +329,9 @@ select CONCAT(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as nome_com
     inner join projeto as p on (p.numero_departamento = d.numero_departamento)
     inner join trabalha_em as t on (f.cpf = t.cpf_funcionario)
     where t.horas is null or t.horas = 0;
+
+
+
 
 
 -- Questão 13
@@ -299,11 +343,18 @@ select CONCAT(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as nome_com
     group by nome_completo_func, nome_completo_dep
     order by idade_func desc, idade_func desc;
 
+
+
+
+
 -- Questão 14
 select d.nome_departamento, COUNT(*) as total_funcionarios
     from funcionario as f
     inner join departamento as d on (f.numero_departamento = d.numero_departamento)
     group by nome_departamento;
+
+
+
 
 -- Questão 15
 select CONCAT(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as nome_completo, d.nome_departamento, p.nome_projeto
