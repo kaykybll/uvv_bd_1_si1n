@@ -97,7 +97,7 @@ values
     (5,'Itu'),
     (5,'São Paulo');
 
--- Inserindo os dados dos projetos na tabela referente a projeto.
+-- Inserindo informações dos projetos na tabela referente a projeto.
 INSERT INTO projeto 
 values  
 	(1,'ProdutoX','Santo André',5),
